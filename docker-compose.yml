@@ -1,20 +1,22 @@
 version: '2'
 services:
-    veare:
+    nodejs:
         restart: always
-        #image: veare/veare:latest
         build:
             context: .
-            args:
-                npm: "true"
-        container_name: veare
         volumes:
-            - ../../veare:/usr/src/app
+            - ../:/usr/src/app
         networks:
             - docker_appnet
-        command: sh start.sh
-        ports:
-            - "8080:8080"
+        #command: sh start.sh
+        entrypoint:
+            - sh
+            - start.sh
+            - -e
+            - npm=true
+        # enable for local testing without docker proxy
+        # ports:
+        #     - "8080:8080"
 # used for interal communication within docker
 networks:
     docker_appnet:
