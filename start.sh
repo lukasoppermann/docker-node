@@ -2,9 +2,11 @@
 if [ -z "$NODE_ENV" ]; then
     export NODE_ENV=production
 fi
-if [[ $npm == "true" ]] ; then
-    cd /usr/src/app/current
-    npm install --save
-fi
-cd /usr/src/app/current
-slc run server.js
+## install npm dependencies
+cd /usr/app/current
+npm install --save --prod
+## start server
+cd /usr/app/current
+#slc run server.js
+#forever start server.js --verbose
+node server.js

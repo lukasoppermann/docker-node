@@ -2,7 +2,10 @@ FROM node:alpine
 
 ENV NODE_ENV production
 
-RUN npm install -g --production strongloop
+#RUN npm install -g --production strongloop
+#RUN npm install pm2 -g --production
+#RUN npm install -g strong-supervisor --production
+# RUN npm install forever -g --production
 # Create app directory
 #RUN mkdir -p /usr/src/app
 #WORKDIR /usr/src/app
@@ -16,7 +19,7 @@ RUN npm install -g --production strongloop
 
 EXPOSE 8080
 
-VOLUME ["/usr/src/app"]
+VOLUME ["/usr/app"]
 
 ADD start.sh /start.sh
 RUN chmod 755 /start.sh
