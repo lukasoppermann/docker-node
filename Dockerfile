@@ -1,8 +1,8 @@
 FROM node:alpine
 
-#ENV NODE_ENV production
+ENV NODE_ENV production
 
-RUN npm install -g strongloop
+RUN npm install -g --production strongloop
 # Create app directory
 #RUN mkdir -p /usr/src/app
 #WORKDIR /usr/src/app
